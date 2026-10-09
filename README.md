@@ -242,6 +242,52 @@ ssh -N -L 8000:127.0.0.1:8000 USER@SERVER_IP
 
 本文未设置服务端 API Key，EMPTY 只是客户端占位值。本机端口被占用时，更换 SSH 左侧端口并同步修改客户端地址。
 
+### 5. 启动命令及保活脚本
+```bash
+# 启动 Qwen：新建容器或启动已有容器，等待 API 就绪
+python3 vllm_server.py start
+
+# 停止 Qwen：保留容器和日志
+python3 vllm_server.py stop
+
+# 修改配置后重新创建容器：应用新参数，会删除旧容器和旧日志
+python3 vllm_server.py restart
+
+# 查看容器状态和 API 是否就绪
+python3 vllm_server.py status
+
+# 持续查看日志：Ctrl+C 只退出查看，不停止 Qwen
+python3 vllm_server.py logs
+
+# 延长启动等待时间至 1800 秒，默认 1200 秒
+python3 vllm_server.py start --timeout 1800
+
+# 启动时跳过 GPU 检查
+python3 vllm_server.py start --no-check
+
+# 查看帮助
+python3 vllm_server.py --help
+
+# 检查 API 连通性，宿主机端口为 28000
+curl --noproxy '*' --max-time 5 http://127.0.0.1:28000/v1/models
+
+# 查看容器内进程名称
+docker top qwen38-27b-mtp16 -eo pid,comm,args
+
+# 使用 Qwen 前停止保活，不停止模型服务
+python3 gpu_idle_keepalive.py stop
+
+# 使用结束后恢复后台保活
+python3 gpu_idle_keepalive.py start
+
+# 查看保活状态和最近日志
+python3 gpu_idle_keepalive.py status
+
+# 完全关闭：先停止保活，再停止 Qwen
+python3 gpu_idle_keepalive.py stop
+python3 vllm_server.py stop
+```
+
 ## 三、更新
 
 ### 1. 可选更新目标与依据（当前尚未执行）
