@@ -131,7 +131,7 @@ docker run -d \
   --gpus '"device=4"' \
   --ipc=host \
   --restart=no \
-  -p 127.0.0.1:8000:8000 \
+  -p 127.0.0.1:28000:8000 \
   -v "$HOME/WorkStation/Vllm/models:/models:ro" \
   -e HF_HUB_OFFLINE=1 \
   docker.1ms.run/vllm/vllm-openai:v0.27.1 \
