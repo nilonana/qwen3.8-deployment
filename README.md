@@ -143,7 +143,7 @@ docker run -d \
   --dtype bfloat16 \
   --gpu-memory-utilization 0.9 \
   --max-model-len 262144 \
-  --max-num-batched-tokens 8192 \
+  --max-num-batched-tokens 8192 \ # 改成16384试试
   --max-num-seqs 16 \
   --kv-cache-dtype fp8 \
   --enable-prefix-caching \
