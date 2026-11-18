@@ -1,0 +1,52 @@
+// .claude/settings.json
+{
+  "env": {
+    "ANTHROPIC_AUTH_TOKEN": "dummy",
+    "ANTHROPIC_BASE_URL": "http://localhost:28000",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_FABLE_MODEL_NAME": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL_NAME": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL_NAME": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "qwen3.8-27b",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL_NAME": "qwen3.8-27b",
+    "ANTHROPIC_MODEL": "qwen3.8-27b",
+    "API_TIMEOUT_MS": "3000000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "qwen3.8-27b",
+    "ENABLE_TOOL_SEARCH": "false"
+  },
+  "permissions": {
+    "allow": [],
+    "deny": [],
+    "defaultMode": "auto"
+  },
+  "model": "opus[1m]",
+  "enabledPlugins": {
+    "ralph-loop@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "superpowers@superpowers-dev": true,
+    "aris@aris": true
+  },
+  "extraKnownMarketplaces": {
+    "superpowers-dev": {
+      "source": {
+        "source": "directory",
+        "path": "/home/long_li/PythonProjects/mypose/superpowers-main"
+      }
+    },
+    "aris": {
+      "source": {
+        "source": "github",
+        "repo": "wanshuiyin/Auto-claude-code-research-in-sleep"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": false,
+  "effortLevel": "xhigh",
+  "verbose": false,
+  "autoCompactEnabled": true,
+  "terminalProgressBarEnabled": true
+}
